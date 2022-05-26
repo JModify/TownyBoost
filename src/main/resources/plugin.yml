@@ -1,0 +1,9 @@
+main: me.modify.townyboost.TownyBoost
+name: TownyBoost
+version: 1.0.0
+description: EXP boosting plugin developed for TownySMP.
+api-version: 1.18
+author: modify
+depend: [mcMMO, Jobs, PlaceholderAPI]
+softdepend: [DiscordSRV]
+prefix: TownyBoost

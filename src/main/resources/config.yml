@@ -1,0 +1,68 @@
+#
+#   ░█████╗░░█████╗░███╗░░██╗███████╗██╗░██████╗░██╗░░░██╗██████╗░░█████╗░████████╗██╗░█████╗░███╗░░██╗
+#   ██╔══██╗██╔══██╗████╗░██║██╔════╝██║██╔════╝░██║░░░██║██╔══██╗██╔══██╗╚══██╔══╝██║██╔══██╗████╗░██║
+#   ██║░░╚═╝██║░░██║██╔██╗██║█████╗░░██║██║░░██╗░██║░░░██║██████╔╝███████║░░░██║░░░██║██║░░██║██╔██╗██║
+#   ██║░░██╗██║░░██║██║╚████║██╔══╝░░██║██║░░╚██╗██║░░░██║██╔══██╗██╔══██║░░░██║░░░██║██║░░██║██║╚████║
+#   ╚█████╔╝╚█████╔╝██║░╚███║██║░░░░░██║╚██████╔╝╚██████╔╝██║░░██║██║░░██║░░░██║░░░██║╚█████╔╝██║░╚███║
+#   ░╚════╝░░╚════╝░╚═╝░░╚══╝╚═╝░░░░░╚═╝░╚═════╝░░╚═════╝░╚═╝░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░╚═╝░╚════╝░╚═╝░░╚══╝
+#
+# -- General configuration --
+# All general configurable settings can be edited here.
+general:
+  # Maximum queue size for boosters. For example: since all boosters are 4 hours long, a queue
+  # size of 6 would allow boosters to be queued for a 24-hour period. If a player tries to queue
+  # another booster and the queue is maxed with boosters, they will have to wait until the next booster
+  # ends before they can queue their booster.
+  #
+  # Queue size also INCLUDES any active booster. For example: say the mcmmo queue size was set to 6
+  # if there are 5 mcmmo boosters queued and 1 mcmmo booster active, this would be considered a
+  # maximum "queue size" (5 + 1 = 6!!)
+  # The logic for this is that there are no "active boosters" backend, there is only a booster which
+  # is at the front of its corresponding queue which the server detects then multiplies exp accordingly.
+  max_queue_size:
+    mcmmo: 6
+    jobs: 6
+  # Server wide boost duration in seconds. Boost duration only decreases while the server is online.
+  boost_duration: 14400
+  # Message sent when player attempts to click "purchase boosters" icon in booster menu.
+  online_store_message: "&aPurchase boosters here https://buycraft.com"
+  # General configuration for jobs boosting
+  jobs:
+    # Boosts all payouts on the server
+    payment_boost: true
+    # Boosts all exp gained when completing job tasks
+    exp_boost: false
+broadcasts:
+  chat:
+    # Announces in server chat when a new booster has been activated.
+    booster_activate:
+      use: true
+      message: "&a&l{PLAYER} activated a {MULTIPLIER}x {TYPE} booster."
+    # Announces in server chat when a booster ends.
+    booster_expire:
+      use: true
+      message: "&c&l{PLAYER}'s {MULTIPLIER}x {TYPE} booster has ended."
+  discord:
+    # Announces in discord that a booster has been activated.
+    booster_activate:
+      use: true
+      text_channel_id: "978869413631623228"
+      message: "{PLAYER} activated a {MULTIPLIER}x {TYPE} booster."
+    booster_expire:
+      use: true
+      text_channel_id: "978869413631623228"
+      message: "{PLAYER}'s {MULTIPLIER}x {TYPE} booster has ended."
+# All placeholder configuration can be edited here.
+# Currently, there are only two placeholders:
+# %booster_mcmmo%
+# %booster_jobs%
+# Each of these placeholders take on two different states, active and non-active.
+# For example: if a MCMMO booster is not active, the placeholder will be replaced by the
+# mcmmo.non-active message and vice versa.
+placeholders:
+  mcmmo:
+    active: "&7{PLAYER}'s {MULTIPLIER}x MCMMO booster is active."
+    non-active: "&7No MCMMO booster currently active."
+  jobs:
+    active: "&7{PLAYER}'s {MULTIPLIER}x Jobs booster is active."
+    non-active: "&7No Jobs booster currently active."
