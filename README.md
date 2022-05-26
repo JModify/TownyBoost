@@ -1,3 +1,2 @@
 # TownyBoost
-Boosting plugin which boosts EXP gain from MCMMO and EXP/Pay gain for JobsReborn.
-
+Boosting plugin which boosts EXP received from MCMMO and EXP/Payout received from JobsReborn.
