@@ -56,7 +56,7 @@ public class Boost {
      */
     @Override
     public String toString() {
-        return String.format("%s %s %s %d", id.toString(), playerId.toString(), multiplier, duration);
+        return String.format("%s %s %d %d", id.toString(), playerId.toString(), multiplier, duration);
     }
 
     /**

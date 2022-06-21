@@ -85,7 +85,7 @@ public abstract class BoostQueue {
                 boosts.poll();
 
                 if (isBoosterActive()) {
-                    Bukkit.getPluginManager().callEvent(new BoostActivateEvent(activeBoost, getType()));
+                    Bukkit.getPluginManager().callEvent(new BoostActivateEvent(boosts.peek(), getType()));
                 }
             }
         }

@@ -43,8 +43,6 @@ public class TownyBoost extends JavaPlugin {
         registerListeners();
 
         startRepeatingTasks();
-
-        hookManager.registerPAPIExpansion();
         PlugLogger.logInfo("TownyBoost successfully enabled!");
     }
 
@@ -70,6 +68,7 @@ public class TownyBoost extends JavaPlugin {
 
         hookManager = new HookManager();
         hookManager.checkHooks();
+        hookManager.registerPAPIExpansion();
     }
 
     /**
@@ -89,7 +88,7 @@ public class TownyBoost extends JavaPlugin {
     }
 
     /**
-     * Registers listeners the plugin requires to run properly.
+     * Registers listeners the plugin requires, to run properly.
      */
     private void registerListeners() {
         PluginManager pluginManager = getServer().getPluginManager();
